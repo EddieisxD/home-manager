@@ -4,6 +4,7 @@
   imports = [
     ./config/zsh_shell.nix
     inputs.nix4nvchad.homeManagerModule
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -11,6 +12,7 @@
   home.homeDirectory = "/home/addy";
 
   nixpkgs.config.allowUnfree = true;
+  # programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -19,7 +21,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.11"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -42,9 +44,27 @@
     pkgs.n8n
     pkgs.ansible
     pkgs.gh
+    pkgs.waypipe
+    pkgs.duplicati
+    pkgs.opencode
+    pkgs.zotero
+    pkgs.steam-run
+    pkgs.megasync
+    pkgs.zed-editor
+    pkgs.mise
+    pkgs.devenv
+    inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
   programs.nvchad.enable = true;
+
+  services.flatpak = {
+      enable = true;
+      packages = [
+        { appId = "com.brave.Browser"; origin = "flathub";  }
+        { appId = "com.rafaelmardojai.Blanket"; origin = "flathub";  }
+      ];
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -80,18 +100,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-    LANG = "en_IN.UTF-8";
-    LC_CTYPE = "en_IN.UTF-8";
-    LC_ALL = "en_IN.UTF-8";
-    LC_ADDRESS = "uk_UA.UTF-8";
-    LC_IDENTIFICATION = "uk_UA.UTF-8";
-    LC_MEASUREMENT = "uk_UA.UTF-8";
-    LC_MONETARY = "uk_UA.UTF-8";
-    LC_NAME = "uk_UA.UTF-8";
-    LC_NUMERIC = "uk_UA.UTF-8";
-    LC_PAPER = "uk_UA.UTF-8";
-    LC_TELEPHONE = "uk_UA.UTF-8";
-    LC_TIME = "uk_UA.UTF-8";
   };
 
   # Let Home Manager install and manage itself.

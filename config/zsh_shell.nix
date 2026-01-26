@@ -26,6 +26,13 @@
       tree = "eza --tree";
     };
 
+    completionInit = ''
+      autoload -Uz compinit
+      compinit
+
+      zstyle ':completion:*' menu select
+    '';
+
     initContent = ''
       setopt SHARE_HISTORY
       setopt HIST_IGNORE_ALL_DUPS
@@ -48,7 +55,7 @@
   };
 
   programs.atuin = {
-    enable = true;
+    enable = false;
     enableZshIntegration = true;
     settings = {
       disable_up_arrow = true;
@@ -71,4 +78,5 @@
     nix-direnv.enable = true;
   };
 }
+
 

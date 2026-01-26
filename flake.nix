@@ -1,4 +1,4 @@
-{
+rec {
   description = "Home Manager configuration of addy";
 
   inputs = {
@@ -12,6 +12,11 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs =
@@ -21,6 +26,8 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
+
+    packages.${system}.neovim-config = (inputs.nvf.lib.neovimConfiguration { inherit pkgs; }).neovim;
     homeConfigurations."addy" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
@@ -32,6 +39,8 @@
     # to pass through arguments to home.nix
       extraSpecialArgs = {
         nix4nvchad = input.nix4nvchad;
+        antigravity-nix = input.antigravity-nix;
+        nix-flatpak = input.nix-flatpak;
       };
     };
   };
