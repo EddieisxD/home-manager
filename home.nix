@@ -3,6 +3,8 @@
 {
   imports = [
     ./config/zsh_shell.nix
+    ./programs/flatpaks.nix
+    ./programs/starship-prompt.nix
     inputs.nix4nvchad.homeManagerModule
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -53,18 +55,14 @@
     pkgs.zed-editor
     pkgs.mise
     pkgs.devenv
+    pkgs.arion
+    pkgs.niv
+    pkgs.kata-runtime
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
   programs.nvchad.enable = true;
 
-  services.flatpak = {
-      enable = true;
-      packages = [
-        { appId = "com.brave.Browser"; origin = "flathub";  }
-        { appId = "com.rafaelmardojai.Blanket"; origin = "flathub";  }
-      ];
-  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

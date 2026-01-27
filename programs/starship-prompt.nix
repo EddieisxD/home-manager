@@ -1,11 +1,13 @@
+
 { pkgs, ... }: {
+
   programs.starship = {
     enable = true;
     settings = {
       # Custom prompt character
       character = {
-        success_symbol = "[➜:](bold green)";
-        error_symbol = "[➜:](bold red)";
+        success_symbol = "[➜ :](bold green)";
+        error_symbol = "[➜ :](bold red)";
       };
 
       # Truncated working directory (shows last 3)
