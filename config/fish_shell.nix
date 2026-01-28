@@ -61,7 +61,7 @@
       # Escapes like \n \t
       set -g fish_color_escape magenta
 
-      fish_add_path -g $HOME/.local/bin
+      # fish_add_path -g $HOME/.local/bin
     '';
   };
 
