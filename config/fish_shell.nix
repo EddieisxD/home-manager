@@ -39,6 +39,29 @@
 
       # Better word motions
       set -g fish_vi_force_cursor 1
+
+       # Valid commands → green
+      set -g fish_color_command green
+
+      # Arguments → normal
+      set -g fish_color_param normal
+
+      # Quoted strings → yellow
+      set -g fish_color_quote yellow
+
+      # Errors → red + bold
+      set -g fish_color_error red --bold
+
+      # Autosuggestions → faint
+      set -g fish_color_autosuggestion brblack
+
+      # Operators (|, >, <, etc)
+      set -g fish_color_operator cyan
+
+      # Escapes like \n \t
+      set -g fish_color_escape magenta
+
+      fish_add_path -g $HOME/.local/bin
     '';
   };
 

@@ -62,8 +62,14 @@
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
-  programs.nvchad.enable = true;
-
+  programs.nvchad = { 
+    enable = true;
+    backup = false;
+    extraPackages = with pkgs; [
+      nil  
+    ];
+    hm-activation = true;
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -91,6 +97,7 @@
     EDITOR = "nvim";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
