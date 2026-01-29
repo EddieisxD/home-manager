@@ -1,9 +1,14 @@
 { pkgs, ... }:
 
 {
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  
+  imports = [
+    ../programs/shell-integrations/atuin.nix
+    ../programs/shell-integrations/starship_prompt.nix
+    ../programs/shell-integrations/fzf.nix
+    ../programs/shell-integrations/zoxide.nix
+    ../programs/direnv.nix
+  ];
 
   programs.fish = {
     enable = true;
@@ -14,7 +19,8 @@
       ll = "eza -l --git";
       la = "eza -la --git";
       tree = "eza --tree";
-      cd = "z";
+      v = "nvim";
+      z = "zeditor";
     };
 
     # Interactive shell config
@@ -61,29 +67,23 @@
       # Escapes like \n \t
       set -g fish_color_escape magenta
 
-      # fish_add_path -g $HOME/.local/bin
     '';
   };
 
   programs.starship = {
-    enable = true;
     enableFishIntegration = true;
   };
 
   programs.fzf = {
-    enable = true;
     enableFishIntegration = true;
   };
 
   programs.zoxide = {
-    enable = true;
     enableFishIntegration = true;
   };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
+  
+  programs.atuin = {
+      enableFishIntegration = true;
   };
 
 }
-

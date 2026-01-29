@@ -1,9 +1,15 @@
 { pkgs, ... }:
 
 {
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+
+  imports = [
+    ../programs/shell-integrations/atuin.nix
+    ../programs/shell-integrations/starship_prompt.nix
+    ../programs/shell-integrations/fzf.nix
+    ../programs/shell-integrations/zoxide.nix
+    ../programs/direnv.nix
+  ];
+
 
   programs.zsh = {
     enable = true;
@@ -50,33 +56,19 @@
   };
 
   programs.starship = {
-    enable = true;
     enableZshIntegration = true;
-  };
-
-  programs.atuin = {
-    enable = false;
-    enableZshIntegration = true;
-    settings = {
-      disable_up_arrow = true;
-    };
   };
 
   programs.fzf = {
-    enable = true;
     enableZshIntegration = true;
   };
 
   programs.zoxide = {
-    enable = true;
     enableZshIntegration = true;
-    options = [ "--cmd" "cd" ];
   };
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
+  programs.atuin = {
+    enableZshIntegration = true;
   };
+
 }
-
-

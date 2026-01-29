@@ -27,7 +27,6 @@ rec {
   in
   {
 
-    packages.${system}.neovim-config = (inputs.nvf.lib.neovimConfiguration { inherit pkgs; }).neovim;
     homeConfigurations."addy" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 

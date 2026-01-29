@@ -6,7 +6,6 @@
     ./config/distrobox.nix
     ./config/fish_shell.nix
     ./programs/flatpaks.nix
-    ./programs/starship-prompt.nix
     inputs.nix4nvchad.homeManagerModule
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -63,12 +62,10 @@
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
-  programs.nvchad = { 
+  programs.nvchad = {
     enable = true;
     backup = false;
-    extraPackages = with pkgs; [
-      nil  
-    ];
+    extraPackages = with pkgs; [];
     hm-activation = true;
   };
 
