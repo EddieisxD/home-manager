@@ -3,6 +3,7 @@
 {
   imports = [
     ./config/zsh_shell.nix
+    ./config/distrobox.nix
     ./config/fish_shell.nix
     ./programs/flatpaks.nix
     ./programs/starship-prompt.nix
