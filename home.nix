@@ -61,6 +61,7 @@
     pkgs.kata-runtime
     pkgs.nixd
     pkgs.nil
+    pkgs.anytype
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
