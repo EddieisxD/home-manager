@@ -62,6 +62,7 @@
     pkgs.nixd
     pkgs.nil
     pkgs.anytype
+    pkgs.nerd-fonts.geist-mono
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
