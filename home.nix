@@ -5,10 +5,9 @@
     ./config/zsh_shell.nix
     ./config/distrobox.nix
     ./config/fish_shell.nix
-    ./programs/flatpaks.nix
     inputs.nix4nvchad.homeManagerModule
-    # inputs.nix-flatpak.homeManagerModules.nix-flatpak
     # ./programs/flatpaks.nix
+    # inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -45,7 +44,7 @@
     pkgs.nerd-fonts.hasklug
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.direnv
-    pkgs.n8n # unfree license 
+    pkgs.n8n # unfree license
     pkgs.ansible
     pkgs.gh
     pkgs.waypipe
@@ -86,7 +85,7 @@
   programs.nvchad = {
     enable = true;
     backup = false;
-    extraPackages = with pkgs; [];
+    extraPackages = with pkgs; [ ];
     hm-activation = true;
   };
 
@@ -116,7 +115,6 @@
     EDITOR = "nvim";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
