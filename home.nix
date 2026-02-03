@@ -8,6 +8,7 @@
     ./programs/flatpaks.nix
     inputs.nix4nvchad.homeManagerModule
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    # ./programs/flatpaks.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -35,7 +36,7 @@
     pkgs.tldr
     pkgs.atuin
     pkgs.eza
-    pkgs.vscode
+    pkgs.vscodium
     pkgs.protonup-ng
     pkgs.x11docker
     pkgs.ghostty
@@ -44,7 +45,7 @@
     pkgs.nerd-fonts.hasklug
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.direnv
-    pkgs.n8n
+    pkgs.n8n # unfree license 
     pkgs.ansible
     pkgs.gh
     pkgs.waypipe
@@ -62,7 +63,21 @@
     pkgs.nixd
     pkgs.nil
     pkgs.anytype
-    pkgs.nerd-fonts.geist-mono
+    pkgs.glab
+    pkgs.stow
+    pkgs.obsidian
+    pkgs.logseq
+    pkgs.super-productivity
+    pkgs.nushell
+    pkgs.tmux
+    pkgs.ollama
+    pkgs.planify
+    pkgs.protonvpn-gui
+    pkgs.qbittorrent
+    pkgs.telegram-desktop
+    pkgs.vlc
+    pkgs.bazaar
+    pkgs.gearlever
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
