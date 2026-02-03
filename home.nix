@@ -7,7 +7,7 @@
     ./config/fish_shell.nix
     ./programs/flatpaks.nix
     inputs.nix4nvchad.homeManagerModule
-    inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    # inputs.nix-flatpak.homeManagerModules.nix-flatpak
     # ./programs/flatpaks.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -78,6 +78,8 @@
     pkgs.vlc
     pkgs.bazaar
     pkgs.gearlever
+    pkgs.warehouse
+    pkgs.heroic
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 

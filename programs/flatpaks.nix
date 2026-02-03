@@ -2,7 +2,7 @@
 
   services.flatpak = {
 
-    enable = true;
+    enable = false;
 
     packages = [  
       # { appId = "app.zen_browser.zen"; origin = "flathub"; }
