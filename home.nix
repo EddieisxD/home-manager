@@ -51,6 +51,7 @@
     pkgs.duplicati
     pkgs.opencode
     pkgs.zotero
+    pkgs.jabref
     pkgs.steam-run
     pkgs.megasync
     pkgs.zed-editor
@@ -74,11 +75,21 @@
     pkgs.protonvpn-gui
     pkgs.qbittorrent
     pkgs.telegram-desktop
+    pkgs.vesktop
     pkgs.vlc
     pkgs.bazaar
     pkgs.gearlever
     pkgs.warehouse
-    pkgs.heroic
+    # pkgs.heroic
+    (pkgs.heroic.override {
+      extraPkgs = pkgs: with pkgs; [
+       gamescope
+       gamemode
+      ];
+     })
+    pkgs.bitwarden-desktop
+    pkgs.bitwarden-cli
+    # pkgs.wireshark pkgs.nmap
     inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
