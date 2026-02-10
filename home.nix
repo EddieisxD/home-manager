@@ -32,9 +32,7 @@
     pkgs.chromium
     pkgs.jujutsu
     pkgs.trash-cli
-    pkgs.tldr
     pkgs.atuin
-    pkgs.eza
     pkgs.vscodium
     pkgs.protonup-ng
     pkgs.x11docker
@@ -43,28 +41,20 @@
     pkgs.nerd-fonts.zed-mono
     pkgs.nerd-fonts.hasklug
     pkgs.nerd-fonts.jetbrains-mono
-    pkgs.direnv
     pkgs.n8n # unfree license
     pkgs.ansible
     pkgs.gh
-    pkgs.waypipe
     pkgs.duplicati
     pkgs.opencode
     pkgs.zotero
     pkgs.jabref
-    pkgs.steam-run
     pkgs.megasync
     pkgs.zed-editor
-    pkgs.mise
-    pkgs.devenv
-    pkgs.arion
-    pkgs.niv
     pkgs.kata-runtime
     pkgs.nixd
     pkgs.nil
     pkgs.anytype
     pkgs.glab
-    pkgs.stow
     pkgs.obsidian
     pkgs.logseq
     pkgs.super-productivity
@@ -77,8 +67,6 @@
     pkgs.telegram-desktop
     pkgs.vesktop
     pkgs.vlc
-    pkgs.bazaar
-    pkgs.gearlever
     pkgs.warehouse
     # pkgs.heroic
     (pkgs.heroic.override {
