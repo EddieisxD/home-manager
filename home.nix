@@ -1,11 +1,10 @@
-{ config, pkgs, ... }@inputs:
+{ pkgs, ... }:
 
 {
   imports = [
     ./config/zsh_shell.nix
     ./config/distrobox.nix
     ./config/fish_shell.nix
-    inputs.nix4nvchad.homeManagerModule
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -31,6 +30,13 @@
   home.packages = [
     pkgs.chromium
     pkgs.jujutsu
+    pkgs.sesh
+    pkgs.zellij
+    pkgs.magic-wormhole
+    pkgs.croc
+    pkgs.impala
+    pkgs.wiremix
+    pkgs.yazi
     pkgs.trash-cli
     pkgs.atuin
     pkgs.vscodium
@@ -44,9 +50,11 @@
     pkgs.n8n # unfree license
     pkgs.ansible
     pkgs.gh
+    pkgs.direnv
     pkgs.duplicati
     pkgs.opencode
     pkgs.zotero
+    pkgs.hal-hardware-analyzer
     pkgs.jabref
     pkgs.megasync
     pkgs.zed-editor
@@ -68,7 +76,6 @@
     pkgs.vesktop
     pkgs.vlc
     pkgs.warehouse
-    # pkgs.heroic
     (pkgs.heroic.override {
       extraPkgs = pkgs: with pkgs; [
        gamescope
@@ -77,16 +84,9 @@
      })
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
-    # pkgs.wireshark pkgs.nmap
-    inputs.antigravity-nix.packages.x86_64-linux.default
+    pkgs.lua
+    pkgs.lua-language-server
   ];
-
-  programs.nvchad = {
-    enable = true;
-    backup = false;
-    extraPackages = with pkgs; [ ];
-    hm-activation = true;
-  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

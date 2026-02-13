@@ -8,14 +8,6 @@ rec {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix4nvchad = {
-      url = "github:nix-community/nix4nvchad";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    antigravity-nix = {
-      url = "github:jacopone/antigravity-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
@@ -37,8 +29,6 @@ rec {
     # Optionally use extraSpecialArgs
     # to pass through arguments to home.nix
       extraSpecialArgs = {
-        nix4nvchad = input.nix4nvchad;
-        antigravity-nix = input.antigravity-nix;
         nix-flatpak = input.nix-flatpak;
       };
     };
