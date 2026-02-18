@@ -21,6 +21,7 @@
       tree = "eza --tree";
       v = "nvim";
       z = "zeditor";
+      code = "codium";
     };
 
     # Interactive shell config
