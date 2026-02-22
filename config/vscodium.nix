@@ -1,63 +1,69 @@
-{ pkgs, vscode-extensions, ... }:
-
-{
-  programs.vscode = let 
+{ pkgs, config, vscode-extensions, ... }:
+  let
+    mutable = true;
     marketplace = vscode-extensions.extensions.x86_64-linux.vscode-marketplace;
-  in {
-    enable = true;
-    package = pkgs.vscodium;
-    mutableExtensionsDir = true;
-
-    profiles.default = {
-      extensions = [
-        # AI chat
-        marketplace.openai.chatgpt
-        marketplace.google.geminicodeassist
-        
-        # environment support
-        marketplace.mkhl.direnv
-        marketplace.arrterian.nix-env-selector
-
-        # language support
-        marketplace.tamasfe.even-better-toml
-        marketplace.jnoortheen.nix-ide
-        marketplace.llvm-vs-code-extensions.vscode-clangd
-        # themes
-        marketplace.catppuccin.catppuccin-vsc
-        marketplace.catppuccin.catppuccin-vsc-icons
-        marketplace.xscriptor.xscriptor-themes
-        marketplace.meronz.hybrid-dim
-      ];
-
-      userSettings = {
-        # UI Layout
-        "workbench.activityBar.location" = "top";
-        "workbench.statusBar.visible" = false;
-        "workbench.sideBar.location" = "right";
-        "workbench.layoutControl.enabled" = false;
-        "window.commandCenter" = false;
-        "window.menuBarVisibility" = "compact";
-        "workbench.startupEditor" = "none";
-        
-        # Editor Behavior
-        "editor.lineNumbers" = "relative";
-        "editor.minimap.enabled" = false;
-        "files.autoSave" = "afterDelay";
-        "explorer.confirmDelete" = false;
-        "git.openRepositoryInParentFolders" = "always";
-        "security.workspace.trust.untrustedFiles" = "open";
-
-        # Appearance
-        "workbench.iconTheme" = "catppuccin-mocha";
-        "workbench.colorTheme" = "Hybrid dim";
-        "workbench.editor.showTabs" = "none";
-        "workbench.editor.editorActionsLocation" = "hidden";
-        
-        # Typography
-        "editor.fontFamily" = "'Haskilg', 'Droid Sans Mono', monospace";
-        "editor.fontLigatures" = true;
-      };
+    baseSettings = {
+      "editor.fontFamily"= "'Haskilg', 'Droid Sans Mono', monospace";
+      "editor.fontLigatures"= true;
+      "editor.lineNumbers"= "relative";
+      "editor.minimap.enabled"= false;
+      "explorer.confirmDelete"= false;
+      "files.autoSave"= "afterDelay";
+      "git.openRepositoryInParentFolders"= "always";
+      "security.workspace.trust.untrustedFiles"= "open";
+      "window.commandCenter"= false;
+      "window.menuBarVisibility"= "compact";
+      "workbench.activityBar.location"= "top";
+      "breadcrumbs.enabled"= false;
+      "workbench.editor.editorActionsLocation"= "hidden";
+      "workbench.editor.showTabs"= "none";
+      "workbench.iconTheme"= "catppuccin-mocha";
+      "workbench.productIconTheme"= "material-product-icons";
+      "workbench.layoutControl.enabled"= false;
+      "workbench.sideBar.location"= "right";
+      "workbench.startupEditor"= "none";
+      "workbench.statusBar.visible"= false;
+      "workbench.colorTheme"= "Hybrid dim";
     };
+  in {
+    programs.vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      mutableExtensionsDir = true;
+
+      profiles.default = {
+        extensions = [
+          # AI chat
+          marketplace.openai.chatgpt
+          
+          # environment support
+          marketplace.mkhl.direnv
+          marketplace.arrterian.nix-env-selector
+
+          # language support
+          marketplace.tamasfe.even-better-toml
+          marketplace.jnoortheen.nix-ide
+          marketplace.llvm-vs-code-extensions.vscode-clangd
+
+          # themes
+          marketplace.catppuccin.catppuccin-vsc
+          marketplace.catppuccin.catppuccin-vsc-icons
+          marketplace.xscriptor.xscriptor-themes
+          marketplace.meronz.hybrid-dim
+          marketplace.pkief.material-product-icons
+        ];
+        userSettings = if mutable then {} else baseSettings;
+      };
 
   };
+  
+  # home.file.".config/VSCodium/User/settings.json".source = 
+	#   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/System/home-manager/dotfiles/vscodium/settings.json";
+  
+  home.file.".config/VSCodium/User/settings.json" = if mutable then {
+    text = builtins.toJSON baseSettings;
+    # If false, Nix won't overwrite your manual changes later
+    force = false; 
+  } else {};
+
 }

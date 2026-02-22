@@ -3,11 +3,11 @@
 {
 
   imports = [
-    ../programs/shell-integrations/atuin.nix
-    ../programs/shell-integrations/starship_prompt.nix
-    ../programs/shell-integrations/fzf.nix
-    ../programs/shell-integrations/zoxide.nix
-    ../programs/direnv.nix
+    ./atuin.nix
+    ./starship_prompt.nix
+    ./fzf.nix
+    ./zoxide.nix
+    ./direnv.nix
   ];
 
 
