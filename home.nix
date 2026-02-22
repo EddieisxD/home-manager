@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, vscode-extensions, ... }@inputs:
 
 {
   imports = [
     ./config/zsh_shell.nix
     ./config/distrobox.nix
     ./config/fish_shell.nix
+    ./config/vscodium.nix
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -75,6 +76,7 @@
     pkgs.telegram-desktop
     pkgs.vesktop
     pkgs.vlc
+    pkgs.spacedrive
     pkgs.warehouse
     (pkgs.heroic.override {
       extraPkgs = pkgs: with pkgs; [
