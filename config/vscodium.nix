@@ -57,13 +57,13 @@
 
   };
   
-  # home.file.".config/VSCodium/User/settings.json".source = 
-	#   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/System/home-manager/dotfiles/vscodium/settings.json";
+  home.file.".config/VSCodium/User/settings.json".source = 
+	  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/System/home-manager/dotfiles/vscodium/settings.json";
   
-  home.file.".config/VSCodium/User/settings.json" = if mutable then {
-    text = builtins.toJSON baseSettings;
-    # If false, Nix won't overwrite your manual changes later
-    force = false; 
-  } else {};
+  # home.file.".config/VSCodium/User/settings.json" = if mutable then {
+  #   text = builtins.toJSON baseSettings;
+  #   # If false, Nix won't overwrite your manual changes later
+  #   force = false; 
+  # } else {};
 
 }
