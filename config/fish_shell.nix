@@ -87,4 +87,9 @@
       enableFishIntegration = true;
   };
 
+  programs.mise = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
 }

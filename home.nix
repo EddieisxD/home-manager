@@ -6,6 +6,7 @@
     ./config/distrobox.nix
     ./config/fish_shell.nix
     ./config/vscodium.nix
+    ./config/tmux.nix
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -36,6 +37,7 @@
     pkgs.magic-wormhole
     pkgs.croc
     pkgs.impala
+    pkgs.mise
     pkgs.wiremix
     pkgs.yazi
     pkgs.trash-cli
@@ -51,7 +53,6 @@
     pkgs.n8n # unfree license
     pkgs.ansible
     pkgs.gh
-    pkgs.direnv
     pkgs.duplicati
     pkgs.opencode
     pkgs.zotero
@@ -86,8 +87,7 @@
      })
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
-    pkgs.lua
-    pkgs.lua-language-server
+    pkgs.winboat
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

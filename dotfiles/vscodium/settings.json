@@ -19,5 +19,9 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "Hybrid dim"
+  "workbench.colorTheme": "Hybrid dim",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "terminal.integrated.stickyScroll.enabled": false,
 }
