@@ -7,6 +7,7 @@
     ./config/fish_shell.nix
     ./config/vscodium.nix
     ./config/tmux.nix
+    ./github_auth.nix
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
