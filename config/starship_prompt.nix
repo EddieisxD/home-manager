@@ -4,17 +4,16 @@
 
     settings = {
       scan_timeout = 360;
-      "$schema" = "https://starship.rs/config-schema.json";
+      # "$schema" = "https://starship.rs/config-schema.json";
       add_newline = false;
 
       format = ''
-         $directory''${custom.giturl}$git_branch$git_state$git_status
-        $character
+        ⟶ $directory''$git_branch$git_state$git_status $character
         '';
 
       right_format = "$all";
 
-      palette = "catppuccin_mocha";
+      # palette = "catppuccin_mocha";
 
       palettes.catppuccin_mocha = {
         rosewater = "#f5e0dc";
@@ -83,29 +82,6 @@
       };
 
       os.disabled = false;
-
-      custom.giturl = {
-        description = "Display symbol for remote Git server";
-        command = ''
-          GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
-          if [[ "$GIT_REMOTE" =~ "github" ]]; then
-              GIT_REMOTE_SYMBOL=" "
-          elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
-              GIT_REMOTE_SYMBOL=" "
-          elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
-              GIT_REMOTE_SYMBOL=" "
-          elif [[ "$GIT_REMOTE" =~ "git" ]]; then
-              GIT_REMOTE_SYMBOL=" "
-          else
-              GIT_REMOTE_SYMBOL=" "
-          fi
-          echo "$GIT_REMOTE_SYMBOL "
-        '';
-        when = "git rev-parse --is-inside-work-tree 2> /dev/null";
-        format = "at $output";
-        ignore_timeout = true;
-        require_repo = true;
-      };
 
       git_branch = {
         symbol = "[](black) ";
@@ -179,7 +155,7 @@
 
       character = {
         disabled = false;
-        success_symbol = "[ ](bold fg:green)";
+        success_symbol = "[✘ ](bold fg:green)";
         error_symbol = "[✘ ](bold fg:red)";
         vimcmd_symbol = "[ :](bold yellow)";
         vimcmd_replace_one_symbol = "[󰝿 :](bold purple)";

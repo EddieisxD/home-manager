@@ -10,7 +10,6 @@
   "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
   "workbench.activityBar.location": "top",
-  "breadcrumbs.enabled": false,
   "workbench.editor.editorActionsLocation": "hidden",
   "workbench.editor.showTabs": "none",
   "workbench.iconTheme": "catppuccin-mocha",
@@ -19,7 +18,7 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "Hybrid dim",
+  "workbench.colorTheme": "Paris",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },

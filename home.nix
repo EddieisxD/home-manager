@@ -8,6 +8,7 @@
     ./config/vscodium.nix
     ./config/tmux.nix
     ./github_auth.nix
+    ./config/ghostty.nix
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -26,6 +27,12 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+  };
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
@@ -59,7 +66,6 @@
     pkgs.zotero
     pkgs.hal-hardware-analyzer
     pkgs.jabref
-    pkgs.megasync
     pkgs.zed-editor
     pkgs.kata-runtime
     pkgs.nixd
@@ -76,6 +82,7 @@
     pkgs.protonvpn-gui
     pkgs.qbittorrent
     pkgs.telegram-desktop
+    pkgs.appflowy
     pkgs.vesktop
     pkgs.vlc
     pkgs.spacedrive
@@ -89,6 +96,11 @@
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
     pkgs.winboat
+
+    # pollution basically
+    pkgs.gcc
+    pkgs.lua
+    pkgs.zip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

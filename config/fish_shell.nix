@@ -29,6 +29,8 @@
       # Vi mode
       fish_vi_key_bindings
 
+      set -g EDITOR nvim
+
       # Cursor shape (makes mode obvious)
       set -g fish_cursor_default block
       set -g fish_cursor_insert line
